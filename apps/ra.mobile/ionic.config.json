@@ -1,0 +1,7 @@
+{
+	"name": "ra.mobile",
+	"integrations": {
+		"capacitor": {}
+	},
+	"type": "react"
+}

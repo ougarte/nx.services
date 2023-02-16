@@ -1,0 +1,190 @@
+{
+	"name": "ra.mobile",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "apps/ra.mobile/src",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nx/webpack:webpack",
+			"outputs": [
+				"{options.outputPath}"
+			],
+			"defaultConfiguration": "production",
+			"options": {
+				"compiler": "babel",
+				"outputPath": "dist/apps/ra.mobile",
+				"index": "apps/ra.mobile/src/index.html",
+				"baseHref": "/",
+				"main": "apps/ra.mobile/src/main.tsx",
+				"tsConfig": "apps/ra.mobile/tsconfig.app.json",
+				"assets": [
+					"apps/ra.mobile/src/assets",
+					"apps/ra.mobile/src/manifest.json"
+				],
+				"styles": [
+					"apps/ra.mobile/src/styles.css"
+				],
+				"scripts": [],
+				"isolatedConfig": true,
+				"webpackConfig": "apps/ra.mobile/webpack.config.js"
+			},
+			"configurations": {
+				"development": {
+					"extractLicenses": false,
+					"optimization": false,
+					"sourceMap": true,
+					"vendorChunk": true
+				},
+				"production": {
+					"fileReplacements": [
+						{
+							"replace": "apps/ra.mobile/src/environments/environment.ts",
+							"with": "apps/ra.mobile/src/environments/environment.prod.ts"
+						}
+					],
+					"optimization": true,
+					"outputHashing": "all",
+					"sourceMap": false,
+					"namedChunks": false,
+					"extractLicenses": true,
+					"vendorChunk": false
+				}
+			}
+		},
+		"serve": {
+			"executor": "@nrwl/webpack:dev-server",
+			"defaultConfiguration": "development",
+			"options": {
+				"buildTarget": "ra.mobile:build",
+				"hmr": true
+			},
+			"configurations": {
+				"development": {
+					"buildTarget": "ra.mobile:build:development"
+				},
+				"production": {
+					"buildTarget": "ra.mobile:build:production",
+					"hmr": false
+				}
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": [
+				"{options.outputFile}"
+			],
+			"options": {
+				"lintFilePatterns": [
+					"apps/ra.mobile/**/*.{ts,tsx,js,jsx}"
+				]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": [
+				"{workspaceRoot}/coverage/{projectRoot}"
+			],
+			"options": {
+				"jestConfig": "apps/ra.mobile/jest.config.ts",
+				"passWithNoTests": true
+			},
+			"configurations": {
+				"ci": {
+					"ci": true,
+					"codeCoverage": true
+				}
+			}
+		},
+		"cap": {
+			"executor": "@nxext/capacitor:cap",
+			"options": {
+				"cmd": "--help"
+			}
+		},
+		"add": {
+			"executor": "@nxext/capacitor:cap",
+			"options": {
+				"cmd": "add"
+			},
+			"configurations": {
+				"ios": {
+					"cmd": "add ios"
+				},
+				"android": {
+					"cmd": "add android"
+				}
+			}
+		},
+		"copy": {
+			"executor": "@nxext/capacitor:cap",
+			"options": {
+				"cmd": "copy"
+			},
+			"configurations": {
+				"ios": {
+					"cmd": "copy ios"
+				},
+				"android": {
+					"cmd": "copy android"
+				}
+			}
+		},
+		"open": {
+			"executor": "@nxext/capacitor:cap",
+			"options": {
+				"cmd": "open"
+			},
+			"configurations": {
+				"ios": {
+					"cmd": "open ios"
+				},
+				"android": {
+					"cmd": "open android"
+				}
+			}
+		},
+		"run": {
+			"executor": "@nxext/capacitor:cap",
+			"options": {
+				"cmd": "run"
+			},
+			"configurations": {
+				"ios": {
+					"cmd": "run ios"
+				},
+				"android": {
+					"cmd": "run android"
+				}
+			}
+		},
+		"sync": {
+			"executor": "@nxext/capacitor:cap",
+			"options": {
+				"cmd": "sync"
+			},
+			"configurations": {
+				"ios": {
+					"cmd": "sync ios"
+				},
+				"android": {
+					"cmd": "sync android"
+				}
+			}
+		},
+		"update": {
+			"executor": "@nxext/capacitor:cap",
+			"options": {
+				"cmd": "update"
+			},
+			"configurations": {
+				"ios": {
+					"cmd": "update ios"
+				},
+				"android": {
+					"cmd": "update android"
+				}
+			}
+		}
+	},
+	"tags": []
+}
