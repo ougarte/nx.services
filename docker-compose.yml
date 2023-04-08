@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mongo-db:
+    image: mongo:latest
+    restart: always
+    container_name: arcus-database
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: secret
+    ports:
+      - 27017:27017
+    volumes:
+      - store:/data/db
+volumes:
+  store:
