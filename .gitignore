@@ -21,10 +21,8 @@ node_modules
 
 # IDE - VSCode
 .vscode/*
-!.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
-!.vscode/extensions.json
 
 # misc
 /.sass-cache
@@ -39,12 +37,13 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+~/**/*
 
 # Temporal Projects
 apps/ra.mobile/
 apps/ra.mobile-e2e/
 apps/web.client/
 apps/web.client-e2e/
-apps/arcus-e2e/
+apps/api-e2e/
 apps/identity/
 apps/identity-e2e/

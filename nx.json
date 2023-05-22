@@ -1,6 +1,6 @@
 {
 	"$schema": "./node_modules/nx/schemas/nx-schema.json",
-	"npmScope": "arcus.services",
+	"npmScope": "ou.services",
 	"tasksRunnerOptions": {
 		"default": {
 			"runner": "@nrwl/nx-cloud",
@@ -62,7 +62,7 @@
 		]
 	},
 	"generators": {
-		"@nrwl/react": {
+		"@nx/react": {
 			"application": {
 				"style": "css",
 				"linter": "eslint",

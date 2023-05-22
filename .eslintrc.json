@@ -3,19 +3,26 @@
 	"ignorePatterns": [
 		"**/*"
 	],
-	"plugins": [
-		"@nrwl/nx"
-	],
+	"parser": "@typescript-eslint/parser",
 	"overrides": [
 		{
 			"files": [
 				"*.ts",
 				"*.tsx",
 				"*.js",
-				"*.jsx"
+				"*.jsx",
+				"*.json"
+			],
+			"plugins": [
+				"@nx",
+				"@cspell"
+			],
+			"extends": [
+				"eslint:recommended",
+				"plugin:@cspell/recommended"
 			],
 			"rules": {
-				"@nrwl/nx/enforce-module-boundaries": [
+				"@nx/enforce-module-boundaries": [
 					"error",
 					{
 						"enforceBuildableLibDependency": true,
@@ -37,8 +44,13 @@
 				"*.ts",
 				"*.tsx"
 			],
+			"plugins": [
+				"@typescript-eslint"
+			],
 			"extends": [
-				"plugin:@nrwl/nx/typescript"
+				"plugin:@nx/react-base",
+				"plugin:@nx/react-typescript",
+				"plugin:@typescript-eslint/recommended"
 			],
 			"rules": {}
 		},
@@ -48,7 +60,8 @@
 				"*.jsx"
 			],
 			"extends": [
-				"plugin:@nrwl/nx/javascript"
+				"plugin:@nx/react-base",
+				"plugin:@nx/react-jsx"
 			],
 			"rules": {}
 		},
@@ -63,6 +76,30 @@
 				"jest": true
 			},
 			"rules": {}
+		},
+		{
+			"files": [
+				"*.md"
+			],
+			"plugins": [
+				"markdown",
+				"@cspell"
+			],
+			"extends": [
+				"eslint:recommended",
+				"plugin:@cspell/recommended",
+				"plugin:markdownlint/recommended"
+			],
+			"parser": "eslint-plugin-markdownlint/parser",
+			"rules": {
+				"markdownlint/md010": "off",
+				"markdownlint/md013": [
+					"error",
+					{
+						"line_length": 100
+					}
+				]
+			}
 		}
 	]
 }

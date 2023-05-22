@@ -14,14 +14,14 @@ npm install --save @nestjs/cqrs # required
 npm install --save @nestjs/typeorm typeorm
 ```
 
-## Create a project
+## Create a projest
 
 ```shell
 # Create a service
-npx nx g @nrwl/nest:app <name>
+npx nx g @nx/nest:app <name>
 
 # Create a library
-npx nx g @nrwl/nest:lib <name>
+npx nx g @nx/nest:lib <name>
 ```
 
 ## Run a project
@@ -52,3 +52,36 @@ Visit the [Nx Documentation](https://nx.dev) to learn more.
 
 - [Unsupported Generics on NEST](https://github.com/nestjs/swagger/issues/191)
 - TypeORM supports mongodb 3.7.1 ony. TODO: Create a wrapper ex: `typeorm/mongodb-plugin`
+
+
+## Dev Notes
+
+<application: api-service>
+/source/<endpoint>/
+REST (ENTITY-DTO)
+- dto(s)
+- controllers, queries, commands
+- data-service
+- guards, pipes, interceptors, exceptions
+- multi-threading | multi-processing | concurrency | parallelism
+
+<library: api-core>
+BUSINESS-LOGIC (ENTITY)
+- queries, commands
+- entities
+- repository-service
+- error handlers
+DATABASE (ENTITY-SCHEMA)
+- migrations
+- repositories
+- error handlers
+
+
+library: swagger
+- responses | request | queries | parameters | generate documentation
+library: open-api
+- generate a client based on a Swagger Schema
+library: database
+- driver | wrapper
+library: logger
+- transports

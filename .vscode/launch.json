@@ -19,9 +19,11 @@
 			"cwd": "${workspaceFolder}",
 			"console": "integratedTerminal",
 			"internalConsoleOptions": "neverOpen",
-			"disableOptimisticBPs": true,
 			"program": "${workspaceFolder}/node_modules/.bin/jest",
 			"windows": {
+				"name": "Launch",
+				"type": "node",
+				"request": "launch",
 				"program": "${workspaceFolder}/node_modules/jest/bin/jest"
 			}
 		}
