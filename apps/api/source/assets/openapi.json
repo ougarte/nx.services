@@ -1,0 +1,620 @@
+{
+	"openapi": "3.0.0",
+	"paths": {
+		"/api/v1/users": {
+			"get": {
+				"operationId": "UsersController_get",
+				"parameters": [
+					{
+						"required": false,
+						"name": "pagination[limit]",
+						"in": "query",
+						"schema": {
+							"default": 20,
+							"type": "number"
+						}
+					},
+					{
+						"required": false,
+						"name": "pagination[offset]",
+						"in": "query",
+						"schema": {
+							"default": 0,
+							"type": "number"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"title": "SuccessResponseUserDTO",
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/PageDto"
+										},
+										{
+											"properties": {
+												"data": {
+													"type": "array",
+													"items": {
+														"$ref": "#/components/schemas/UserDTO"
+													}
+												}
+											}
+										}
+									]
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"title": "ErrorResponseOfUserDTO",
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/ExceptionResponseDto"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"/users"
+				]
+			},
+			"post": {
+				"operationId": "UsersController_post",
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CreateUserDTO"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UserDTO"
+								}
+							}
+						}
+					},
+					"201": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UserDTO"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"/users"
+				]
+			}
+		},
+		"/api/v1/users/{uuid}": {
+			"get": {
+				"operationId": "UsersController_getById",
+				"parameters": [
+					{
+						"name": "uuid",
+						"required": true,
+						"in": "path",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UserDTO"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"/users"
+				]
+			},
+			"put": {
+				"operationId": "UsersController_put",
+				"parameters": [
+					{
+						"name": "uuid",
+						"required": true,
+						"in": "path",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UpdateUserDTO"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UserDTO"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"/users"
+				]
+			},
+			"patch": {
+				"operationId": "UsersController_patch",
+				"parameters": [
+					{
+						"name": "uuid",
+						"required": true,
+						"in": "path",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/PartialUpdateUserDTO"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UserDTO"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"/users"
+				]
+			},
+			"delete": {
+				"operationId": "UsersController_delete",
+				"parameters": [
+					{
+						"name": "uuid",
+						"required": true,
+						"in": "path",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UserDTO"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"/users"
+				]
+			}
+		},
+		"/api/v1/users/bulk": {
+			"post": {
+				"operationId": "UsersController_bulk",
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/CreateUserDTO"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"title": "SuccessResponseUserDTO",
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/PageDto"
+										},
+										{
+											"properties": {
+												"data": {
+													"type": "array",
+													"items": {
+														"$ref": "#/components/schemas/UserDTO"
+													}
+												}
+											}
+										}
+									]
+								}
+							}
+						}
+					},
+					"201": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/UserDTO"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"title": "ErrorResponseOfUserDTO",
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/ExceptionResponseDto"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"/users"
+				]
+			}
+		}
+	},
+	"info": {
+		"title": "[REST API] Alpha Service",
+		"description": "The Alpha Service API",
+		"version": "1",
+		"contact": {}
+	},
+	"tags": [
+		{
+			"name": "alpha",
+			"description": ""
+		}
+	],
+	"servers": [],
+	"components": {
+		"schemas": {
+			"PageDto": {
+				"type": "object",
+				"properties": {
+					"data": {
+						"readOnly": true,
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"total": {
+						"type": "number",
+						"readOnly": true
+					},
+					"limit": {
+						"type": "number",
+						"readOnly": true
+					},
+					"offset": {
+						"type": "number",
+						"readOnly": true
+					}
+				},
+				"required": [
+					"data",
+					"total",
+					"limit",
+					"offset"
+				]
+			},
+			"UserDTO": {
+				"type": "object",
+				"properties": {
+					"username": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"firstName": {
+						"type": "string",
+						"default": "default first name"
+					},
+					"lastName": {
+						"type": "string",
+						"default": "default last name"
+					},
+					"age": {
+						"type": "number",
+						"default": 0,
+						"minimum": 0
+					},
+					"id": {
+						"type": "string"
+					},
+					"uuid": {
+						"type": "string"
+					},
+					"createdAt": {
+						"format": "date-time",
+						"type": "string"
+					},
+					"updatedAt": {
+						"format": "date-time",
+						"type": "string"
+					},
+					"deletedAt": {
+						"format": "date-time",
+						"type": "string"
+					},
+					"version": {
+						"type": "number"
+					}
+				},
+				"required": [
+					"username",
+					"email",
+					"id",
+					"uuid",
+					"createdAt",
+					"updatedAt",
+					"version"
+				]
+			},
+			"UpdateUserDTO": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"uuid": {
+						"type": "string"
+					},
+					"createdAt": {
+						"format": "date-time",
+						"type": "string"
+					},
+					"updatedAt": {
+						"format": "date-time",
+						"type": "string"
+					},
+					"deletedAt": {
+						"format": "date-time",
+						"type": "string"
+					},
+					"version": {
+						"type": "number"
+					},
+					"username": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"firstName": {
+						"type": "string",
+						"default": "default first name"
+					},
+					"lastName": {
+						"type": "string",
+						"default": "default last name"
+					},
+					"age": {
+						"type": "number",
+						"default": 0,
+						"minimum": 0
+					}
+				},
+				"required": [
+					"id",
+					"uuid",
+					"createdAt",
+					"updatedAt",
+					"version",
+					"username",
+					"email"
+				]
+			},
+			"PartialUpdateUserDTO": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"uuid": {
+						"type": "string"
+					},
+					"createdAt": {
+						"format": "date-time",
+						"type": "string"
+					},
+					"updatedAt": {
+						"format": "date-time",
+						"type": "string"
+					},
+					"deletedAt": {
+						"format": "date-time",
+						"type": "string"
+					},
+					"version": {
+						"type": "number"
+					},
+					"username": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"firstName": {
+						"type": "string",
+						"default": "default first name"
+					},
+					"lastName": {
+						"type": "string",
+						"default": "default last name"
+					},
+					"age": {
+						"type": "number",
+						"default": 0,
+						"minimum": 0
+					}
+				}
+			},
+			"CreateUserDTO": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"uuid": {
+						"type": "string"
+					},
+					"createdAt": {
+						"format": "date-time",
+						"type": "string"
+					},
+					"updatedAt": {
+						"format": "date-time",
+						"type": "string"
+					},
+					"deletedAt": {
+						"format": "date-time",
+						"type": "string"
+					},
+					"version": {
+						"type": "number"
+					},
+					"username": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"firstName": {
+						"type": "string",
+						"default": "default first name"
+					},
+					"lastName": {
+						"type": "string",
+						"default": "default last name"
+					},
+					"age": {
+						"type": "number",
+						"default": 0,
+						"minimum": 0
+					}
+				},
+				"required": [
+					"id",
+					"uuid",
+					"createdAt",
+					"updatedAt",
+					"version",
+					"username",
+					"email"
+				]
+			},
+			"SuccessResponseDto": {
+				"type": "object",
+				"properties": {
+					"total": {
+						"type": "number"
+					},
+					"limit": {
+						"type": "number"
+					},
+					"offset": {
+						"type": "number"
+					}
+				},
+				"required": [
+					"total",
+					"limit",
+					"offset"
+				]
+			},
+			"ExceptionResponseDto": {
+				"type": "object",
+				"properties": {
+					"message": {
+						"type": "string"
+					},
+					"statusCode": {
+						"type": "number"
+					},
+					"errors": {
+						"type": "array",
+						"items": {
+							"type": "object"
+						}
+					}
+				},
+				"required": [
+					"message",
+					"statusCode",
+					"errors"
+				]
+			}
+		}
+	}
+}
