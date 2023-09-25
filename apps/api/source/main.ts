@@ -17,7 +17,7 @@ import '@helpers/polyfills';
 		// TODO: Move this configuration to Environment Variables ex: `options`
 		const settings: IServerSettings = { abortOnError: true };
 		const server: IServer = new Server({
-			name: 'Arcus Service',
+			name: 'API Service',
 			module: ApplicationModule as any,
 			extensions: [new Swagger()],
 			interceptors: [new ResponseInterceptor()],

@@ -1,4 +1,4 @@
-# [NestJS] Arcus Service
+# [NestJS] API Service
 
 ## NX Commands
 

@@ -33,7 +33,7 @@ npx nx run <service>:<target>
 
 ## Development server
 
-Run `nx serve CS Arcus` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+Run `nx serve CS API` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
 ## Understand this workspace
 
