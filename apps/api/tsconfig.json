@@ -1,0 +1,70 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"files": [],
+	"include": [],
+	"references": [
+		{
+			"path": "./tsconfig.app.json"
+		},
+		{
+			"path": "./tsconfig.spec.json"
+		}
+	],
+	"compilerOptions": {
+		"esModuleInterop": true,
+		"baseUrl": "source",
+		"paths": {
+			"@controllers/*": [
+				"controllers/*"
+			],
+			"@decorators/*": [
+				"decorators/*"
+			],
+			"@modules/*": [
+				"modules/*"
+			],
+			"@entities/*": [
+				"entities/*"
+			],
+			"@dtos/*": [
+				"dtos/*"
+			],
+			"@interfaces/*": [
+				"interfaces/*"
+			],
+			"@interceptors/*": [
+				"interceptors/*"
+			],
+			"@repositories/*": [
+				"repositories/*"
+			],
+			"@queries/*": [
+				"queries/*"
+			],
+			"@commands/*": [
+				"commands/*"
+			],
+			"@services/*": [
+				"services/*"
+			],
+			"@exceptions/*": [
+				"exceptions/*"
+			],
+			"@mappers/*": [
+				"mappers/*"
+			],
+			"@pipes/*": [
+				"pipes/*"
+			],
+			"@helpers/*": [
+				"helpers/*"
+			],
+			"@reports/*": [
+				"reports/*"
+			],
+			"@validators/*": [
+				"validators/*"
+			],
+		}
+	}
+}

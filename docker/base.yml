@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  nx-base:
+    restart: always
+    build:
+      #  References to 'docker/Dockerfile'
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    environment:
+      - DEV_PLATFORM=DOCKER
+    volumes:
+      - ../:/app
+      - ../node_modules:/app/node_modules

@@ -1,0 +1,62 @@
+version: '3'
+services:
+  database:
+    image: mongo:latest
+    restart: always
+    container_name: api-database
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: secret
+    ports:
+      - 27017:27017
+    volumes:
+      - store:/data/db
+  database-bull:
+    image: redis:latest
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - store-bull:/data/db
+
+volumes:
+  store:
+  store-bull:
+
+    # version: '3'
+    # services:
+    #   # Third Party Services
+    #   database:
+    #     image: mongo:latest
+    #     restart: always
+    #     container_name: api-database
+    #     environment:
+    #       MONGO_INITDB_ROOT_USERNAME: root
+    #       MONGO_INITDB_ROOT_PASSWORD: secret
+    #     ports:
+    #       - 27017:27017
+    #     volumes:
+    #       - store:/data/db
+    #   database-bull:
+    #     image: redis:latest
+    #     restart: always
+    #     container_name: api-database-bull
+    #     ports:
+    #       - 6379:6379
+    #     volumes:
+    #       - store-bull:/data/db
+    #   # Projects
+    #   api:
+    #     container_name: api-service
+    #     extends:
+    #       file: docker-base.yml
+    #       service: nx-base
+    #     # command: npm run api
+    #     depends_on:
+    #       - database
+    #       - database-bull
+    # volumes:
+    #   store:
+    #   store-bull:
+
+

@@ -1,0 +1,74 @@
+{
+	"name": "identity",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "apps/identity/src",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nx/webpack:webpack",
+			"outputs": [
+				"{options.outputPath}"
+			],
+			"defaultConfiguration": "production",
+			"options": {
+				"target": "node",
+				"compiler": "tsc",
+				"outputPath": "dist/apps/identity",
+				"main": "apps/identity/src/main.ts",
+				"tsConfig": "apps/identity/tsconfig.app.json",
+				"assets": [
+					"apps/identity/src/assets"
+				],
+				"isolatedConfig": true,
+				"webpackConfig": "apps/identity/webpack.config.js"
+			},
+			"configurations": {
+				"development": {},
+				"production": {}
+			}
+		},
+		"serve": {
+			"executor": "@nrwl/js:node",
+			"defaultConfiguration": "development",
+			"options": {
+				"buildTarget": "identity:build"
+			},
+			"configurations": {
+				"development": {
+					"buildTarget": "identity:build:development"
+				},
+				"production": {
+					"buildTarget": "identity:build:production"
+				}
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": [
+				"{options.outputFile}"
+			],
+			"options": {
+				"lintFilePatterns": [
+					"apps/identity/**/*.ts"
+				]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": [
+				"{workspaceRoot}/coverage/{projectRoot}"
+			],
+			"options": {
+				"jestConfig": "apps/identity/jest.config.ts",
+				"passWithNoTests": true
+			},
+			"configurations": {
+				"ci": {
+					"ci": true,
+					"codeCoverage": true
+				}
+			}
+		}
+	},
+	"tags": []
+}
