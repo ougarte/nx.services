@@ -1,4 +1,4 @@
-import { CallHandler, ExecutionContext, Injectable, NestInterceptor, HttpStatus, HttpException, Logger } from "@nestjs/common";
+import { CallHandler, ExecutionContext, Injectable, NestInterceptor, Logger } from "@nestjs/common";
 import { map, Observable, throwError, catchError } from "rxjs";
 
 interface IResponse<TEntity> {

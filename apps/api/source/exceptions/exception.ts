@@ -1,6 +1,7 @@
 import {
 	Catch,
 	ArgumentsHost,
+	ExceptionFilter,
 } from '@nestjs/common';
 import { AbstractHttpAdapter } from '@nestjs/core';
 import { IExceptionFilter } from '@interfaces/extension';
@@ -28,16 +29,7 @@ export class ExceptionsFilter implements IExceptionFilter {
 	}
 
 	catch(exception: unknown, host: ArgumentsHost): void {
-		console.log('ExceptionsFilter::catch');
-		console.log(exception)
-		console.log(JSON.stringify(exception, null, 2));
-
-		// const { httpAdapter } = this.adapter;
 		const context = host.switchToHttp();
-		// const response = context.getResponse<Response>();
-    // const request = context.getRequest<Request>();
-    // const status = exception.getStatus();
-
 		const responseBody = {
 			statusCode: '400',
 			timestamp: new Date().toISOString(),
@@ -45,13 +37,5 @@ export class ExceptionsFilter implements IExceptionFilter {
 		};
 
 		this.adapter.reply(context.getResponse(), responseBody, 400);
-		// response
-    //   .status(400)
-    //   .json({
-    //     statusCode: 400,
-    //     timestamp: new Date().toISOString(),
-    //     path: request.url,
-		// 		...responseBody,
-    //   });
 	}
 }

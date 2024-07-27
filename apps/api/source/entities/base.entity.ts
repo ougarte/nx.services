@@ -16,7 +16,7 @@ import { v4 as uuid } from 'uuid'
 @Entity()
 export class BaseEntity {
 	// TODO: `mongodb` driver does not support 'uuid'. So that using 'ObjectIdColumn' only for `mongodb`.
-	@ObjectIdColumn({ name: '_id' })
+	@ObjectIdColumn({ name: '_id', select: false })
 	@IsNotEmpty()
 	// @AutoMap({ type: () => HackObjectId }) // TODO: Unable to map MongoDB ObjectId easy. `class HackObjectId { }`
 	id: string;
@@ -55,11 +55,9 @@ export class BaseEntity {
 	}
 
 	constructor() {
-		console.log('BaseEntity')
 		this.id = `${new ObjectId()}`;
 		this.uuid = uuid();
 		this.createdAt = new Date();
 		this.updatedAt = new Date();
-		console.log('BaseEntity', JSON.stringify(this, null , 2))
 	}
 }

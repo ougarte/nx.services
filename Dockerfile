@@ -1,5 +1,6 @@
-# FROM node:lts-hydrogen
-# WORKDIR /app
+FROM node:lts-iron
+
+WORKDIR /app
 
 # # ARG CACHEBUST=1
 
@@ -7,10 +8,10 @@
 # # RUN pwd
 # # RUN ls -la
 
-# COPY ./package.json ./
-# COPY ./package-lock.json ./
-# RUN npm install --legacy-peer-deps
+COPY ./package-lock.json ./
+COPY ../.npmrc ./
+
+RUN npm install
 
 # # RUN pwd
 # # RUN ls -la
-

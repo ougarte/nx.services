@@ -17,7 +17,6 @@ export class BaseMapper extends AutomapperProfile {
 				BaseEntity,
 				BaseDto,
 				forMember(dto => dto.id, mapFrom((entity) => {
-					console.log('BaseMapper', entity)
 					return entity.id;
 				})),
 				forMember(dto => dto.uuid, mapFrom((entity) => entity.uuid))
@@ -27,7 +26,6 @@ export class BaseMapper extends AutomapperProfile {
 				BaseDto,
 				BaseEntity,
 				forMember(dto => dto.id, mapFrom((entity) => {
-					console.log('BaseMapper', entity)
 					return entity.id;
 				})),
 				forMember(dto => dto.uuid, mapFrom((entity) => entity.uuid))

@@ -4,6 +4,21 @@
 		"**/*"
 	],
 	"parser": "@typescript-eslint/parser",
+	"plugins": [
+		"@nx/nx",
+		"@cspell",
+		"prettier",
+		"json",
+		"react",
+		"react-hooks",
+		"markdownlint",
+		"@typescript-eslint"
+	],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@cspell/recommended",
+		"plugin:prettier/recommended"
+	],
 	"overrides": [
 		{
 			"files": [
