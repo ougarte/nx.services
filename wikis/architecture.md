@@ -8,7 +8,7 @@
   	- easy to find
   	- Easy to navigate
 
-		- MAINTAIN VS SCALABILIITY
+		- MAINTAIN VS SCALABILITY
   		- GROW: VERTICALLY VS HORIZONTALLY
   		- 
   	- naming conventions: directories | files | resources
@@ -16,11 +16,11 @@
 
 - Architecture
 	- Context: Software refers to structure a service, project, layers, between services
-	- Abstract Patterns: Creating, Behiviour, Architecture
+	- Abstract Patterns: Creating, Behaviour, Architecture
 
 - Principios
   - Bajo Acoplamiento
-  - Alta Cohecion
+  - Alta Cohesión
 
 
 REST API: RESTLESS - RESTFUL

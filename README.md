@@ -2,9 +2,9 @@
 
 ## Overview
 
-This mono-repository is providing a some proof-of-concept exercises about NX and Nest technologies.
+This mono-repository provides some proof-of-concept exercises about NX and Nest technologies.
 
-## Install dependency
+## Install dependencies
 
 ```shell
 npm install --save @nestjs/swagger
@@ -14,7 +14,7 @@ npm install --save @nestjs/cqrs # required
 npm install --save @nestjs/typeorm typeorm
 ```
 
-## Create a projest
+## Create a project
 
 ```shell
 # Create a service
@@ -51,7 +51,7 @@ Visit the [Nx Documentation](https://nx.dev) to learn more.
 ## Known Issues
 
 - [Unsupported Generics on NEST](https://github.com/nestjs/swagger/issues/191)
-- TypeORM supports mongodb 3.7.1 ony. TODO: Create a wrapper ex: `typeorm/mongodb-plugin`
+- TypeORM supports mongodb 3.7.1 only. TODO: Create a wrapper ex: `typeorm/mongodb-plugin`
 
 
 ## Dev Notes
